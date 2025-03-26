@@ -29,9 +29,6 @@ namespace YastrebovLanguage
         public string GenderCode { get; set; }
         public string Phone { get; set; }
         public string PhotoPath { get; set; }
-        public Nullable<System.DateTime> Birthday { get; set; }
-        public string Email { get; set; }
-        public System.DateTime RegistrationDate { get; set; }
         public string RegistrationDateString
         {
             get
@@ -71,7 +68,7 @@ namespace YastrebovLanguage
         }
         public string GenderName
         {
-            get { return Gender.Name;}
+            get { return Gender.Name; }
         }
         public int VisitCount
         {
@@ -81,6 +78,10 @@ namespace YastrebovLanguage
                 return datelist.Count;
             }
         }
+        public Nullable<System.DateTime> Birthday { get; set; }
+        public string Email { get; set; }
+        public System.DateTime RegistrationDate { get; set; }
+    
         public virtual Gender Gender { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ClientService> ClientService { get; set; }

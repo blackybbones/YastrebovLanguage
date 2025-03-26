@@ -177,16 +177,6 @@
   <ItemGroup>
     <Resource Include="pngs\school_logo.ico" />
     <Resource Include="pngs\school_logo.png" />
-    <Content Include="YastrebovLanguage.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>YastrebovLanguage.Context.cs</LastGenOutput>
-      <DependentUpon>YastrebovLanguage.edmx</DependentUpon>
-    </Content>
-    <Content Include="YastrebovLanguage.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>YastrebovLanguage.edmx</DependentUpon>
-      <LastGenOutput>YastrebovLanguage.cs</LastGenOutput>
-    </Content>
     <Resource Include="Клиенты\1.jpg" />
     <Resource Include="Клиенты\10.jpg" />
     <Resource Include="Клиенты\11.jpg" />
@@ -290,6 +280,18 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="YastrebovLanguage.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>YastrebovLanguage.edmx</DependentUpon>
+      <LastGenOutput>YastrebovLanguage.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="YastrebovLanguage.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>YastrebovLanguage.edmx</DependentUpon>
+      <LastGenOutput>YastrebovLanguage.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:YastrebovLanguage"
         mc:Ignorable="d"
-        Title="Yastrebov" Height="450" Width="800" FontFamily="Comic Sans MS" Icon="pngs/school_logo.ico" >
+        Title="Yastrebov" Height="450" Width="800" FontFamily="Comic Sans MS" Icon="pngs/school_logo.ico" Background="#e7fabf" >
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="75"/>

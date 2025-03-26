@@ -14,6 +14,33 @@
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="40"></RowDefinition>
         </Grid.RowDefinitions>
+        <WrapPanel Orientation="Horizontal" HorizontalAlignment="Left" Grid.Row="0" Grid.ColumnSpan="3">
+
+
+            <StackPanel Margin="10" Orientation="Horizontal">
+                <TextBlock Text="поиск по наименованию" FontSize="15"></TextBlock>
+                <TextBox Name="TBoxSearch" TextChanged="TBoxSearch_TextChanged"
+     Width="250" FontSize="15"></TextBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <ComboBox Name="ComboGender" SelectionChanged="ComboGender_SelectionChanged"
+      FontSize="15" Width="100">
+                    <TextBlock>Все</TextBlock>
+                    <TextBlock>Мужской</TextBlock>
+                    <TextBlock>Женский</TextBlock>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <ComboBox Name="ComboSort" SelectionChanged="ComboSort_SelectionChanged"
+FontSize="15" Width="300">
+                    <TextBlock>Нет</TextBlock>
+                    <TextBlock>По фамилии от А до Я</TextBlock>
+                    <TextBlock>По дате последнего посещения</TextBlock>
+                    <TextBlock>По количеству посещений</TextBlock>
+                </ComboBox>
+            </StackPanel>
+        </WrapPanel>
         <ListView Name="ClientListView" Grid.Row="1">
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -31,6 +58,7 @@
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="35"/>
                         </Grid.RowDefinitions>
+                        
                         <Image Width="210" Grid.Column="0" Stretch="UniformToFill" HorizontalAlignment="Center" Grid.RowSpan="6" Margin="20">
                             <Image.Source>
                                 <Binding Path="PhotoPath"></Binding>
@@ -41,9 +69,9 @@
                             <TextBlock Text="ID:  " FontSize="20"></TextBlock>
                             <TextBlock Text="{Binding ID}" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" FontSize="20"></TextBlock>
                             <TextBlock Text="  "></TextBlock>
-                            <TextBlock Text="{Binding FirstName}" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" FontSize="20"></TextBlock>
-                            <TextBlock Text="  "></TextBlock>
                             <TextBlock Text="{Binding LastName}" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" FontSize="20"></TextBlock>
+                            <TextBlock Text="  "></TextBlock>
+                            <TextBlock Text="{Binding FirstName}" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" FontSize="20"></TextBlock>
                             <TextBlock Text="  "></TextBlock>
                             <TextBlock Text="{Binding Patronymic}" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" FontSize="20"></TextBlock>
                         </StackPanel>
@@ -73,10 +101,36 @@
                             <TextBlock Text="Количество посещений:  " FontSize="20"></TextBlock>
                             <TextBlock Text="{Binding VisitCount}" FontSize="20"/>
                         </StackPanel>
+                        <Button Name="DeleteBtn" Content="Удалить" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Right" Click="DeleteBtn_Click"></Button>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="2">
+            <TextBlock Text="Выводить по" FontSize="15"></TextBlock>
+            <ComboBox Height="25" Name="ComboFilter" SelectionChanged="ComboFilter_SelectionChanged"
+  FontSize="15" Width="70" Margin="5">
+                <TextBlock>10</TextBlock>
+                <TextBlock>50</TextBlock>
+                <TextBlock>200</TextBlock>
+                <TextBlock>Все</TextBlock>
+            </ComboBox>
 
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock FontSize="15" Name="TBProductCountRecords"></TextBlock>
+                <TextBlock Text=" из " FontSize="15"></TextBlock>
+                <TextBlock FontSize="15" Name="TBProductCountMaxRecords"></TextBlock>
+                <Button Name="LeftDirButton" Content="&lt;" Width="20" Height="30" Click="LeftDirButton_Click"></Button>
+                <ListBox FontSize="20" Name="PageListBox" MouseUp="PageListBox_MouseUp">
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                </ListBox>
+
+                <Button Name="RightDirButton" Content="&gt;" Width="20" Height="30" Click="RightDirButton_Click"></Button>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>
