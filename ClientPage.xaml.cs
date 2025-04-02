@@ -219,5 +219,28 @@ namespace YastrebovLanguage
         {
             UpdateProducts();
         }
+
+        private void Addbtn_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.Navigate(new AddEditPage(null));
+            UpdateProducts();
+        }
+
+        private void EditBtn_Click(object sender, RoutedEventArgs e)
+        {
+            
+            Manager.MainFrame.Navigate(new AddEditPage((sender as Button).DataContext as Client));
+            UpdateProducts();
+        }
+
+        private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (Visibility == Visibility.Visible)
+            {
+                YastrebovLanguageEntities.GetContext().ChangeTracker.Entries().ToList().ForEach(x => x.Reload());
+                UpdateProducts();
+
+            }
+        }
     }
 }

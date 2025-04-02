@@ -14,7 +14,7 @@
         </Grid.RowDefinitions>
         <Image Source="pngs/school_logo.png" HorizontalAlignment="Left"></Image>
         <TextBlock Text="Школа Лангуаге" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-        <Frame Grid.Row="1" Name="MainFrame" ContentRendered="MainFrame_ContentRendered" ></Frame>
+        <Frame Grid.Row="1" Name="MainFrame" ContentRendered="MainFrame_ContentRendered" NavigationUIVisibility="Hidden"></Frame>
         <Button Name="BtnBack" Content="Назад" HorizontalAlignment="Right" Margin="5"
             Click="BtnBack_Click"></Button>
     </Grid>
